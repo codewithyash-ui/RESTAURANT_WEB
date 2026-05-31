@@ -1,0 +1,438 @@
+<!-- frontend/contact.html - Complete with City Search & Map -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Spice & Crust Bakery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 theme-warm">
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center flex-wrap">
+        <a href="/" class="text-2xl font-bold" style="color: var(--primary)"><i class="fas fa-utensils"></i> Spice & Crust</a>
+        <div class="space-x-6">
+          <a href="/" class="text-gray-700 hover:transition">Home</a>
+          <a href="/menu.html" class="text-gray-700 hover:transition">Menu</a>
+          <a href="/about.html" class="text-gray-700 hover:transition">About</a>
+          <a href="/contact.html" class="font-semibold" style="color: var(--primary)">Contact</a>
+          <a href="/order.html" class="text-white px-4 py-2 rounded-full hover:transition" style="background-color: var(--primary)">Order Now</a>
+          <a href="/cart.html" class="text-gray-700 hover:transition relative">
+            <i class="fas fa-shopping-bag"></i> Cart
+            <span id="cart-count" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up">Contact Us</h1>
+      <p class="text-xl text-gray-200 animate-fade-in-up">We'd love to hear from you! Get in touch with us for any queries or feedback.</p>
+    </div>
+  </section>
+
+  <!-- Contact Info Cards -->
+  <div class="container mx-auto px-4 -mt-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-2xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-all duration-300">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: var(--primary)">
+          <i class="fas fa-phone-alt text-3xl text-white"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Call Us</h3>
+        <p class="text-gray-600">Monday to Sunday</p>
+        <p class="text-2xl font-bold mt-2" style="color: var(--primary)">+91 98765 43210</p>
+        <p class="text-sm text-gray-500 mt-2">Available 7 AM - 9 PM</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-all duration-300">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: var(--primary)">
+          <i class="fas fa-envelope text-3xl text-white"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Email Us</h3>
+        <p class="text-gray-600">24/7 Support</p>
+        <p class="text-lg font-medium mt-2" style="color: var(--primary)">info@spiceandcrust.com</p>
+        <p class="text-sm text-gray-500 mt-2">We'll respond within 24 hours</p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-xl p-6 text-center transform hover:-translate-y-2 transition-all duration-300">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: var(--primary)">
+          <i class="fas fa-map-marker-alt text-3xl text-white"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Visit Us</h3>
+        <p class="text-gray-600">Find our bakery</p>
+        <p class="font-medium mt-2" style="color: var(--primary)">123 Food Street, Mumbai, Maharashtra</p>
+        <p class="text-sm text-gray-500 mt-2">Serving all Maharashtra cities</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- City Search Section -->
+  <div class="container mx-auto px-4 py-8">
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+      <div class="p-6 border-b">
+        <div class="flex items-center">
+          <i class="fas fa-search-location text-2xl mr-3" style="color: var(--primary)"></i>
+          <h2 class="text-2xl font-bold text-gray-800">Find Your City</h2>
+        </div>
+        <p class="text-gray-600 mt-1">Search to see if we deliver to your city</p>
+      </div>
+      
+      <div class="p-6">
+        <div class="relative max-w-md mx-auto mb-8">
+          <i class="fas fa-search absolute left-4 top-4 text-gray-400"></i>
+          <input type="text" 
+                 id="city-search" 
+                 placeholder="Search your city (e.g., Mumbai, Pune, Nagpur)..." 
+                 class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-orange-500 transition-all duration-300">
+        </div>
+        
+        <div id="city-result" class="text-center hidden"></div>
+        
+        <div>
+          <p class="text-sm text-gray-500 mb-3 text-center">📍 We deliver to these cities:</p>
+          <div class="flex flex-wrap justify-center gap-2" id="cities-list">
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Mumbai</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Pune</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Nagpur</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Nashik</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Aurangabad</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Solapur</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Kolhapur</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Thane</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Amravati</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Nanded</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Sangli</span>
+            <span class="city-badge px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gray-100 text-gray-700 hover:bg-orange-500 hover:text-white">Jalgaon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- City Map View Section -->
+  <div class="container mx-auto px-4 py-8">
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+      <div class="p-6 border-b">
+        <div class="flex items-center">
+          <i class="fas fa-map-location-dot text-2xl mr-3" style="color: var(--primary)"></i>
+          <h2 class="text-2xl font-bold text-gray-800">City Map View</h2>
+        </div>
+        <p class="text-gray-600 mt-1">See the location of your city on the map</p>
+      </div>
+      
+      <div class="p-6">
+        <div id="current-city-display" class="text-center mb-4 hidden">
+          <span class="inline-block px-4 py-2 rounded-full text-sm font-semibold" style="background-color: var(--bg-light); color: var(--primary)">
+            <i class="fas fa-location-dot"></i> Currently Viewing: <span id="viewing-city">Mumbai</span>
+          </span>
+        </div>
+        
+        <div class="relative rounded-xl overflow-hidden shadow-lg" style="height: 400px;">
+          <iframe id="city-map-frame" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15000!2d72.8777!3d19.0760!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+        
+        <p class="text-xs text-gray-500 text-center mt-3">
+          <i class="fas fa-info-circle"></i> Click on any city badge to see its location on map
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Form & Business Hours -->
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Send Us a Message</h2>
+        <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you soon!</p>
+        
+        <form id="contact-form">
+          <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label class="block text-gray-700 font-medium mb-2">Your Name</label>
+              <div class="relative">
+                <i class="fas fa-user absolute left-3 top-3 text-gray-400"></i>
+                <input type="text" id="contact-name" placeholder="John Doe" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 transition">
+              </div>
+            </div>
+            <div>
+              <label class="block text-gray-700 font-medium mb-2">Email Address</label>
+              <div class="relative">
+                <i class="fas fa-envelope absolute left-3 top-3 text-gray-400"></i>
+                <input type="email" id="contact-email" placeholder="john@example.com" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 transition">
+              </div>
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
+            <div class="relative">
+              <i class="fas fa-phone absolute left-3 top-3 text-gray-400"></i>
+              <input type="tel" id="contact-phone" placeholder="+91 98765 43210" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 transition">
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">Subject</label>
+            <div class="relative">
+              <i class="fas fa-tag absolute left-3 top-3 text-gray-400"></i>
+              <input type="text" id="contact-subject" placeholder="Order Inquiry / Feedback / Support" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 transition">
+            </div>
+          </div>
+          
+          <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-2">Message</label>
+            <div class="relative">
+              <i class="fas fa-comment absolute left-3 top-3 text-gray-400"></i>
+              <textarea id="contact-message" rows="5" placeholder="Tell us what you think..." class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-orange-500 transition"></textarea>
+            </div>
+          </div>
+          
+          <button type="submit" class="w-full text-white py-3 rounded-lg font-semibold transition transform hover:scale-105 glow-on-hover" style="background-color: var(--primary)">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+          
+          <div id="contact-message-result" class="mt-4 hidden p-3 rounded-lg"></div>
+        </form>
+      </div>
+
+      <div>
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-clock text-3xl mr-3" style="color: var(--primary)"></i>
+            <h2 class="text-2xl font-bold text-gray-800">Business Hours</h2>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="flex justify-between items-center py-3 border-b">
+              <div class="flex items-center">
+                <i class="fas fa-calendar-day w-8 text-gray-500"></i>
+                <span class="font-medium">Monday - Friday</span>
+              </div>
+              <span class="font-semibold" style="color: var(--primary)">7:00 AM - 8:00 PM</span>
+            </div>
+            <div class="flex justify-between items-center py-3 border-b">
+              <div class="flex items-center">
+                <i class="fas fa-calendar-week w-8 text-gray-500"></i>
+                <span class="font-medium">Saturday</span>
+              </div>
+              <span class="font-semibold" style="color: var(--primary)">8:00 AM - 9:00 PM</span>
+            </div>
+            <div class="flex justify-between items-center py-3">
+              <div class="flex items-center">
+                <i class="fas fa-calendar-week w-8 text-gray-500"></i>
+                <span class="font-medium">Sunday</span>
+              </div>
+              <span class="font-semibold" style="color: var(--primary)">8:00 AM - 6:00 PM</span>
+            </div>
+          </div>
+          
+          <div class="mt-6 p-4 rounded-lg" style="background-color: var(--bg-light)">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-600">Currently</p>
+                <p class="font-bold" style="color: var(--primary)" id="store-status">Open</p>
+              </div>
+              <i class="fas fa-store text-4xl" style="color: var(--primary)"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+          <div class="flex items-center mb-6">
+            <i class="fas fa-share-alt text-3xl mr-3" style="color: var(--primary)"></i>
+            <h2 class="text-2xl font-bold text-gray-800">Follow Us</h2>
+          </div>
+          
+          <div class="grid grid-cols-3 gap-4">
+            <a href="#" class="flex flex-col items-center p-4 rounded-xl transition transform hover:-translate-y-1" style="background-color: #1877f2;">
+              <i class="fab fa-facebook text-3xl text-white"></i>
+              <span class="text-white text-sm mt-2">Facebook</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-4 rounded-xl transition transform hover:-translate-y-1" style="background-color: #e4405f;">
+              <i class="fab fa-instagram text-3xl text-white"></i>
+              <span class="text-white text-sm mt-2">Instagram</span>
+            </a>
+            <a href="#" class="flex flex-col items-center p-4 rounded-xl transition transform hover:-translate-y-1" style="background-color: #1da1f2;">
+              <i class="fab fa-twitter text-3xl text-white"></i>
+              <span class="text-white text-sm mt-2">Twitter</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme Toggle Button -->
+  <div class="theme-toggle-btn bg-white shadow-lg rounded-full">
+    <button id="theme-toggle" class="flex items-center gap-2 px-4 py-2 rounded-full" style="color: var(--primary)">
+      <i class="fas fa-palette"></i>
+      <span class="hidden sm:inline">Themes</span>
+    </button>
+  </div>
+
+  <!-- Theme Menu -->
+  <div id="theme-menu" class="fixed bottom-20 right-20 bg-white rounded-lg shadow-xl z-50 hidden w-48">
+    <div class="p-2">
+      <h3 class="text-sm font-semibold text-gray-600 px-3 py-2">Choose Theme</h3>
+      <div class="theme-option flex items-center gap-3 px-3 py-2 cursor-pointer rounded-lg hover:bg-gray-100" data-theme="warm">
+        <div class="w-6 h-6 rounded-full bg-orange-600"></div>
+        <span>Warm Bakery</span>
+      </div>
+      <div class="theme-option flex items-center gap-3 px-3 py-2 cursor-pointer rounded-lg hover:bg-gray-100" data-theme="green">
+        <div class="w-6 h-6 rounded-full bg-green-600"></div>
+        <span>Fresh & Green</span>
+      </div>
+      <div class="theme-option flex items-center gap-3 px-3 py-2 cursor-pointer rounded-lg hover:bg-gray-100" data-theme="purple">
+        <div class="w-6 h-6 rounded-full bg-purple-600"></div>
+        <span>Royal Purple</span>
+      </div>
+      <div class="theme-option flex items-center gap-3 px-3 py-2 cursor-pointer rounded-lg hover:bg-gray-100" data-theme="red">
+        <div class="w-6 h-6 rounded-full bg-red-600"></div>
+        <span>Red & Spicy</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 Spice & Crust - Authentic Indian Bakery. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script>
+    function updateStoreStatus() {
+      const statusEl = document.getElementById('store-status');
+      if (!statusEl) return;
+      const now = new Date();
+      const day = now.getDay();
+      const hours = now.getHours();
+      let status = 'Open';
+      if (day === 0) {
+        if (hours < 8 || hours >= 18) status = 'Closed';
+      } else if (day === 6) {
+        if (hours < 8 || hours >= 21) status = 'Closed';
+      } else {
+        if (hours < 7 || hours >= 20) status = 'Closed';
+      }
+      statusEl.textContent = status;
+      statusEl.style.color = status === 'Open' ? 'green' : 'red';
+    }
+    updateStoreStatus();
+
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('contact-name').value;
+        const email = document.getElementById('contact-email').value;
+        const message = document.getElementById('contact-message').value;
+        const resultDiv = document.getElementById('contact-message-result');
+        if (!name || !email || !message) {
+          resultDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> Please fill all required fields.';
+          resultDiv.className = 'mt-4 p-3 rounded-lg bg-red-100 text-red-700';
+          resultDiv.classList.remove('hidden');
+          setTimeout(() => resultDiv.classList.add('hidden'), 3000);
+          return;
+        }
+        resultDiv.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending message...';
+        resultDiv.className = 'mt-4 p-3 rounded-lg bg-blue-100 text-blue-700';
+        resultDiv.classList.remove('hidden');
+        setTimeout(() => {
+          resultDiv.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! We\'ll get back to you soon.';
+          resultDiv.className = 'mt-4 p-3 rounded-lg bg-green-100 text-green-700';
+          contactForm.reset();
+          setTimeout(() => resultDiv.classList.add('hidden'), 5000);
+        }, 1500);
+      });
+    }
+
+    // City Search and Map Functionality
+    const cities = ["Mumbai", "Pune", "Nagpur", "Nashik", "Aurangabad", "Solapur", "Kolhapur", "Thane", "Amravati", "Nanded", "Sangli", "Jalgaon"];
+    
+    const cityCoordinates = {
+      "Mumbai": { lat: 19.0760, lng: 72.8777, name: "Mumbai, Maharashtra" },
+      "Pune": { lat: 18.5204, lng: 73.8567, name: "Pune, Maharashtra" },
+      "Nagpur": { lat: 21.1458, lng: 79.0882, name: "Nagpur, Maharashtra" },
+      "Nashik": { lat: 19.9975, lng: 73.7898, name: "Nashik, Maharashtra" },
+      "Aurangabad": { lat: 19.8762, lng: 75.3433, name: "Aurangabad, Maharashtra" },
+      "Solapur": { lat: 17.6599, lng: 75.9064, name: "Solapur, Maharashtra" },
+      "Kolhapur": { lat: 16.7050, lng: 74.2433, name: "Kolhapur, Maharashtra" },
+      "Thane": { lat: 19.2183, lng: 72.9781, name: "Thane, Maharashtra" },
+      "Amravati": { lat: 20.9374, lng: 77.7796, name: "Amravati, Maharashtra" },
+      "Nanded": { lat: 19.1383, lng: 77.3210, name: "Nanded, Maharashtra" },
+      "Sangli": { lat: 16.8524, lng: 74.5815, name: "Sangli, Maharashtra" },
+      "Jalgaon": { lat: 21.0076, lng: 75.5626, name: "Jalgaon, Maharashtra" }
+    };
+    
+    const searchInput = document.getElementById('city-search');
+    const cityResult = document.getElementById('city-result');
+    const cityBadges = document.querySelectorAll('.city-badge');
+    
+    function updateCityMap(cityName) {
+      const city = cityCoordinates[cityName];
+      if (city) {
+        const mapFrame = document.getElementById('city-map-frame');
+        mapFrame.src = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15000!2d${city.lng}!3d${city.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z${encodeURIComponent(city.name)}!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin`;
+        const cityDisplay = document.getElementById('current-city-display');
+        const viewingCitySpan = document.getElementById('viewing-city');
+        if (viewingCitySpan) viewingCitySpan.textContent = cityName;
+        if (cityDisplay) cityDisplay.classList.remove('hidden');
+        mapFrame.style.opacity = '0';
+        setTimeout(() => { mapFrame.style.transition = 'opacity 0.5s ease'; mapFrame.style.opacity = '1'; }, 100);
+      }
+    }
+    
+    function searchCity(cityName) {
+      const foundCity = cities.find(city => city.toLowerCase() === cityName.toLowerCase());
+      if (foundCity) {
+        cityResult.innerHTML = `<div class="bg-green-100 border-l-4 border-green-500 p-4 rounded-lg"><div class="flex items-center"><i class="fas fa-check-circle text-green-500 text-xl mr-3"></i><div><p class="font-bold text-green-800">✓ Great News!</p><p class="text-green-700">We deliver to <span class="font-bold">${foundCity}</span>! 🎉</p><p class="text-sm text-green-600">Free delivery on orders above ₹500</p></div></div></div>`;
+        cityResult.classList.remove('hidden');
+        updateCityMap(foundCity);
+        cityBadges.forEach(badge => {
+          if (badge.textContent.toLowerCase() === cityName.toLowerCase()) {
+            badge.classList.add('bg-orange-500', 'text-white');
+            badge.classList.remove('bg-gray-100', 'text-gray-700');
+            setTimeout(() => {
+              badge.classList.remove('bg-orange-500', 'text-white');
+              badge.classList.add('bg-gray-100', 'text-gray-700');
+            }, 2000);
+          }
+        });
+      } else {
+        cityResult.innerHTML = `<div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg"><div class="flex items-center"><i class="fas fa-map-marker-alt text-yellow-500 text-xl mr-3"></i><div><p class="font-bold text-yellow-800">Coming Soon!</p><p class="text-yellow-700">We don't deliver to <span class="font-bold">${cityName}</span> yet.</p><p class="text-sm text-yellow-600">But we're expanding soon! Contact us for updates.</p></div></div></div>`;
+        cityResult.classList.remove('hidden');
+      }
+      cityResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        if (query.length > 2) searchCity(query);
+        else if (query.length === 0) cityResult.classList.add('hidden');
+      });
+    }
+    
+    cityBadges.forEach(badge => {
+      badge.addEventListener('click', () => {
+        const city = badge.textContent;
+        if (searchInput) { searchInput.value = city; searchCity(city); }
+      });
+    });
+  </script>
+</body>
+</html>

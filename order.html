@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Order - Spice & Crust Bakery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center flex-wrap">
+        <a href="index.html" class="text-2xl font-bold" style="color: #ea580c"><i class="fas fa-utensils"></i> Spice & Crust</a>
+        <div class="space-x-6">
+          <a href="index.html" class="text-gray-700 hover:text-orange-600 transition">Home</a>
+          <a href="menu.html" class="text-gray-700 hover:text-orange-600 transition">Menu</a>
+          <a href="about.html" class="text-gray-700 hover:text-orange-600 transition">About</a>
+          <a href="contact.html" class="text-gray-700 hover:text-orange-600 transition">Contact</a>
+          <a href="order.html" class="text-white px-4 py-2 rounded-full hover:bg-orange-700 transition" style="background-color: #ea580c">Order Now</a>
+          <a href="cart.html" class="text-gray-700 hover:text-orange-600 transition relative">
+            <i class="fas fa-shopping-bag"></i> Cart
+            <span id="cart-count" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mx-auto px-4 py-12 max-w-4xl">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Place Your Order</h1>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-semibold mb-4">Select Items</h2>
+        <div id="order-menu-items" class="space-y-3 max-h-96 overflow-y-auto"></div>
+        <div class="mt-6 pt-4 border-t">
+          <div class="flex justify-between text-xl font-bold">
+            <span>Total:</span>
+            <span class="font-bold" style="color: #ea580c">₹<span id="order-total">0.00</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-semibold mb-4">Your Details</h2>
+        <form id="quick-order-form">
+          <div class="space-y-4">
+            <input type="text" id="name" placeholder="Full Name" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-orange-500">
+            <input type="tel" id="phone" placeholder="Phone Number" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-orange-500">
+            <textarea id="address" placeholder="Delivery Address" rows="2" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-orange-500"></textarea>
+            <h3 class="font-semibold mt-4">Payment Details (Dummy)</h3>
+            <input type="text" id="card" placeholder="Card Number" value="4242 4242 4242 4242" class="w-full border border-gray-300 rounded-lg p-3">
+            <div class="grid grid-cols-2 gap-4">
+              <input type="text" id="expiry" placeholder="MM/YY" value="12/25" class="border border-gray-300 rounded-lg p-3">
+              <input type="text" id="cvv" placeholder="CVV" value="123" class="border border-gray-300 rounded-lg p-3">
+            </div>
+            <button type="submit" class="w-full text-white py-3 rounded-lg font-semibold transition transform hover:scale-105 hover:bg-orange-700" style="background-color: #ea580c">Place Order</button>
+          </div>
+        </form>
+        <div id="order-message" class="mt-4 hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 text-white py-6 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 Spice & Crust - Authentic Indian Bakery. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="js/order.js"></script>
+</body>
+</html>

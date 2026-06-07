@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Spice & Crust</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8">
+      <div class="text-center mb-8">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #ea580c">
+          <i class="fas fa-user-shield text-3xl text-white"></i>
+        </div>
+        <h2 class="text-3xl font-bold text-gray-800">Admin Login</h2>
+        <p class="text-gray-600 mt-2">Demo Mode - Click Login to Continue</p>
+      </div>
+      <form id="admin-login-form">
+        <input type="email" id="admin-email" placeholder="admin@spiceandcrust.com" class="w-full border p-3 rounded mb-3" value="admin@spiceandcrust.com">
+        <input type="password" id="admin-password" placeholder="Password" class="w-full border p-3 rounded mb-3" value="admin123">
+        <button type="submit" class="w-full text-white py-3 rounded-lg hover:bg-orange-700 transition" style="background-color: #ea580c">Login (Demo)</button>
+        <div id="login-error" class="mt-4 hidden p-3 rounded text-center"></div>
+      </form>
+      <div class="mt-6 text-center"><a href="index.html" style="color: #ea580c">← Back to Website</a></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('admin-login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      localStorage.setItem('adminLoggedIn', 'true');
+      window.location.href = 'admin.html';
+    });
+  </script>
+</body>
+</html>

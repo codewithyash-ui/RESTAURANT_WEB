@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Spice & Crust Bakery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center flex-wrap">
+        <a href="index.html" class="text-2xl font-bold" style="color: #ea580c"><i class="fas fa-utensils"></i> Spice & Crust</a>
+        <div class="space-x-6">
+          <a href="index.html" class="text-gray-700 hover:text-orange-600 transition">Home</a>
+          <a href="menu.html" class="text-gray-700 hover:text-orange-600 transition">Menu</a>
+          <a href="about.html" class="text-gray-700 hover:text-orange-600 transition">About</a>
+          <a href="contact.html" class="text-gray-700 hover:text-orange-600 transition">Contact</a>
+          <a href="order.html" class="text-white px-4 py-2 rounded-full hover:bg-orange-700 transition" style="background-color: #ea580c">Order Now</a>
+          <a href="cart.html" class="text-gray-700 hover:text-orange-600 transition relative">
+            <i class="fas fa-shopping-bag"></i> Cart
+            <span id="cart-count" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mx-auto px-4 py-12 max-w-3xl">
+    <h1 class="text-3xl font-bold text-gray-800 mb-8">Checkout</h1>
+    <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+      <h2 class="text-xl font-semibold mb-4">Order Summary</h2>
+      <div id="checkout-items"></div>
+      <p class="text-right text-xl font-bold mt-4">Total: ₹<span id="checkout-total">0.00</span></p>
+    </div>
+    <form id="checkout-form" class="bg-white rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-semibold mb-4">Customer Information</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <input type="text" id="fullname" placeholder="Full Name" required class="border p-3 rounded focus:outline-none focus:border-orange-500" style="border-color: #ea580c">
+        <input type="email" id="email" placeholder="Email" required class="border p-3 rounded focus:outline-none focus:border-orange-500" style="border-color: #ea580c">
+        <input type="tel" id="phone" placeholder="Phone Number" required class="border p-3 rounded focus:outline-none focus:border-orange-500" style="border-color: #ea580c">
+        <input type="text" id="address" placeholder="Delivery Address" required class="border p-3 rounded md:col-span-2 focus:outline-none focus:border-orange-500" style="border-color: #ea580c">
+      </div>
+      <h2 class="text-xl font-semibold mb-4">Payment Details (Dummy)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <input type="text" id="card-number" placeholder="Card Number" class="border p-3 rounded focus:outline-none focus:border-orange-500" style="border-color: #ea580c">
+        <input type="text" id="expiry" placeholder="MM/YY" class="border p-3 rounded focus:outline-none focus:border-orange-500" style="border-color: #ea580c">
+        <input type="text" id="cvv" placeholder="CVV" class="border p-3 rounded focus:outline-none focus:border-orange-500" style="border-color: #ea580c">
+      </div>
+      <div id="form-message" class="mb-4 hidden p-3 rounded"></div>
+      <button type="submit" class="w-full text-white px-8 py-3 rounded-full text-lg font-semibold transition transform hover:scale-105 hover:bg-orange-700" style="background-color: #ea580c">Place Order</button>
+    </form>
+  </div>
+
+  <footer class="bg-gray-800 text-white text-center py-6 mt-12">
+    <p>&copy; 2025 Spice & Crust - Authentic Indian Bakery. All rights reserved.</p>
+  </footer>
+
+  <script src="js/checkout.js"></script>
+</body>
+</html>

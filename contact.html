@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Spice & Crust Bakery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contact-hero {
+      background: linear-gradient(135deg, #ea580c, #f59e0b);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
+      background-size: 50px 50px;
+      animation: spin 40s linear infinite;
+    }
+    .contact-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 24px;
+    }
+    .contact-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .social-icon {
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #f3f4f6;
+      color: #ea580c;
+      margin: 0 8px;
+    }
+    .social-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+      background: #ea580c;
+      color: white;
+    }
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fef3c7;
+      color: #ea580c;
+      margin-right: 1rem;
+    }
+    .hours-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px dashed #e5e7eb;
+      transition: all 0.3s;
+    }
+    .hours-item:hover {
+      padding-left: 10px;
+      background: #fef3c7;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center flex-wrap">
+        <a href="index.html" class="text-2xl font-bold animate-float" style="color: #ea580c"><i class="fas fa-utensils"></i> Spice & Crust</a>
+        <div class="space-x-6">
+          <a href="index.html" class="text-gray-700 hover:text-orange-600 transition">Home</a>
+          <a href="menu.html" class="text-gray-700 hover:text-orange-600 transition">Menu</a>
+          <a href="about.html" class="text-gray-700 hover:text-orange-600 transition">About</a>
+          <a href="contact.html" class="font-semibold" style="color: #ea580c">Contact</a>
+          <a href="order.html" class="text-white px-4 py-2 rounded-full hover:bg-orange-700 transition" style="background-color: #ea580c">Order Now</a>
+          <a href="cart.html" class="text-gray-700 hover:text-orange-600 transition relative">
+            <i class="fas fa-shopping-bag"></i> Cart
+            <span id="cart-count" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="contact-hero py-24">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up">Contact Us</h1>
+      <p class="text-xl text-orange-100 animate-fade-in-up delay-200">We'd love to hear from you</p>
+      <div class="w-24 h-1 bg-white mx-auto mt-6 rounded-full animate-fade-in-up delay-300"></div>
+    </div>
+  </section>
+
+  <!-- Contact Cards -->
+  <div class="container mx-auto px-4 -mt-16">
+    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+      <!-- Phone Card -->
+      <div class="contact-card bg-white rounded-2xl shadow-xl p-6 text-center scroll-reveal">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #ea580c">
+          <i class="fas fa-phone-alt text-3xl text-white"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Call Us</h3>
+        <p class="text-gray-500 text-sm">Monday to Sunday</p>
+        <p class="text-2xl font-bold mt-2" style="color: #ea580c">+91 98765 43210</p>
+        <p class="text-sm text-gray-400 mt-2">Available 7 AM - 9 PM</p>
+      </div>
+
+      <!-- Email Card -->
+      <div class="contact-card bg-white rounded-2xl shadow-xl p-6 text-center scroll-reveal delay-100">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #ea580c">
+          <i class="fas fa-envelope text-3xl text-white"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Email Us</h3>
+        <p class="text-gray-500 text-sm">24/7 Support</p>
+        <p class="text-lg font-medium mt-2" style="color: #ea580c">info@spiceandcrust.com</p>
+        <p class="text-sm text-gray-400 mt-2">We'll respond within 24 hours</p>
+      </div>
+
+      <!-- Location Card -->
+      <div class="contact-card bg-white rounded-2xl shadow-xl p-6 text-center scroll-reveal delay-200">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #ea580c">
+          <i class="fas fa-map-marker-alt text-3xl text-white"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Visit Us</h3>
+        <p class="text-gray-500 text-sm">Find our bakery</p>
+        <p class="font-medium mt-2" style="color: #ea580c">123 Food Street, Mumbai, India</p>
+        <p class="text-sm text-gray-400 mt-2">Get directions below ↓</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Info & Hours -->
+  <div class="container mx-auto px-4 py-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Contact Information -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 scroll-reveal">
+          <div class="flex items-center mb-6">
+            <div class="info-icon">
+              <i class="fas fa-address-card text-xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800">Get in Touch</h2>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <i class="fas fa-phone w-8" style="color: #ea580c"></i>
+              <span>+91 98765 43210</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-envelope w-8" style="color: #ea580c"></i>
+              <span>info@spiceandcrust.com</span>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt w-8" style="color: #ea580c"></i>
+              <span>123 Food Street, Mumbai, India</span>
+            </div>
+          </div>
+          
+          <!-- Social Media -->
+          <div class="mt-8">
+            <h3 class="font-semibold text-gray-800 mb-4">Follow Us</h3>
+            <div class="flex gap-3">
+              <a href="#" class="social-icon"><i class="fab fa-facebook-f text-xl"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-instagram text-xl"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-twitter text-xl"></i></a>
+              <a href="#" class="social-icon"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 scroll-reveal delay-100">
+          <div class="flex items-center mb-6">
+            <div class="info-icon">
+              <i class="fas fa-clock text-xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800">Business Hours</h2>
+          </div>
+          <div class="space-y-2">
+            <div class="hours-item">
+              <span class="font-medium">Monday - Friday</span>
+              <span class="font-semibold" style="color: #ea580c">7:00 AM - 8:00 PM</span>
+            </div>
+            <div class="hours-item">
+              <span class="font-medium">Saturday</span>
+              <span class="font-semibold" style="color: #ea580c">8:00 AM - 9:00 PM</span>
+            </div>
+            <div class="hours-item">
+              <span class="font-medium">Sunday</span>
+              <span class="font-semibold" style="color: #ea580c">8:00 AM - 6:00 PM</span>
+            </div>
+          </div>
+          
+          <!-- Store Status -->
+          <div class="mt-6 p-4 rounded-xl" style="background: #fef3c7">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm text-gray-600">Currently</p>
+                <p class="font-bold text-green-600" id="store-status">Open</p>
+              </div>
+              <i class="fas fa-store text-3xl" style="color: #ea580c"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Section -->
+  <div class="container mx-auto px-4 pb-16">
+    <div class="max-w-5xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div class="p-6 border-b">
+          <div class="flex items-center">
+            <i class="fas fa-map-marked-alt text-2xl mr-3" style="color: #ea580c"></i>
+            <h2 class="text-2xl font-bold text-gray-800">Find Us Here</h2>
+          </div>
+        </div>
+        <div class="h-96">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15000!2d72.8777!3d19.0760!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 Spice & Crust - Authentic Indian Bakery. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up text-white"></i>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Store status checker
+    function updateStoreStatus() {
+      const statusEl = document.getElementById('store-status');
+      if (!statusEl) return;
+      const now = new Date();
+      const day = now.getDay();
+      const hours = now.getHours();
+      let status = 'Open';
+      let color = 'green';
+      if (day === 0) { if (hours < 8 || hours >= 18) { status = 'Closed'; color = 'red'; } }
+      else if (day === 6) { if (hours < 8 || hours >= 21) { status = 'Closed'; color = 'red'; } }
+      else { if (hours < 7 || hours >= 20) { status = 'Closed'; color = 'red'; } }
+      statusEl.textContent = status;
+      statusEl.style.color = color;
+    }
+    updateStoreStatus();
+  </script>
+</body>
+</html>

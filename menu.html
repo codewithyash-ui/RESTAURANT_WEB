@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Spice & Crust Bakery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .menu-hero {
+      background: linear-gradient(135deg, #ea580c, #f59e0b);
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
+      background-size: 50px 50px;
+      animation: spin 40s linear infinite;
+    }
+    .category-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: rgba(234, 88, 12, 0.9);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      backdrop-filter: blur(5px);
+      z-index: 10;
+    }
+    .price-tag {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ea580c;
+    }
+    .price-tag small {
+      font-size: 0.8rem;
+      font-weight: normal;
+    }
+    .add-to-cart-btn {
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .add-to-cart-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(234, 88, 12, 0.4);
+    }
+    .filter-btn {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 500;
+      cursor: pointer;
+      background: white;
+      color: #4b5563;
+      border: 1px solid #e5e7eb;
+    }
+    .filter-btn.active {
+      background: #ea580c !important;
+      color: white !important;
+      border-color: #ea580c;
+      box-shadow: 0 5px 15px rgba(234, 88, 12, 0.3);
+    }
+    .filter-btn:hover {
+      transform: translateY(-3px);
+      border-color: #ea580c;
+    }
+    .menu-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+    .menu-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .menu-card img {
+      transition: transform 0.5s;
+    }
+    .menu-card:hover img {
+      transform: scale(1.08);
+    }
+    .veg-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.7rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex justify-between items-center flex-wrap">
+        <a href="index.html" class="text-2xl font-bold animate-float" style="color: #ea580c"><i class="fas fa-utensils"></i> Spice & Crust</a>
+        <div class="space-x-6">
+          <a href="index.html" class="text-gray-700 hover:text-orange-600 transition">Home</a>
+          <a href="menu.html" class="font-semibold" style="color: #ea580c">Menu</a>
+          <a href="about.html" class="text-gray-700 hover:text-orange-600 transition">About</a>
+          <a href="contact.html" class="text-gray-700 hover:text-orange-600 transition">Contact</a>
+          <a href="order.html" class="text-white px-4 py-2 rounded-full hover:bg-orange-700 transition" style="background-color: #ea580c">Order Now</a>
+          <a href="cart.html" class="text-gray-700 hover:text-orange-600 transition relative">
+            <i class="fas fa-shopping-bag"></i> Cart
+            <span id="cart-count" class="absolute -top-2 -right-3 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="menu-hero py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 animate-fade-in-up">Our Menu</h1>
+      <p class="text-xl text-orange-100 animate-fade-in-up delay-200">Discover our delicious range of Indian bakery items</p>
+      <div class="w-24 h-1 bg-white mx-auto mt-6 rounded-full animate-fade-in-up delay-300"></div>
+    </div>
+  </section>
+
+  <!-- Category Filters -->
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex flex-wrap justify-center gap-3 mb-8">
+      <button class="filter-btn active bg-orange-600 text-white px-6 py-2 rounded-full" data-category="all">All Items</button>
+      <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-orange-600 hover:text-white transition" data-category="Bread">🍞 Breads</button>
+      <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-orange-600 hover:text-white transition" data-category="Paratha">🥟 Parathas</button>
+      <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-orange-600 hover:text-white transition" data-category="Snacks">🍿 Snacks</button>
+      <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-orange-600 hover:text-white transition" data-category="Sweet">🍬 Sweets</button>
+      <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-orange-600 hover:text-white transition" data-category="South Indian">🥞 South Indian</button>
+      <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-orange-600 hover:text-white transition" data-category="Street Food">🍢 Street Food</button>
+      <button class="filter-btn bg-white text-gray-700 px-6 py-2 rounded-full hover:bg-orange-600 hover:text-white transition" data-category="Main Course">🍛 Main Course</button>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="container mx-auto px-4 py-8">
+    <div id="full-menu-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </div>
+
+  <!-- Featured Banner -->
+  <div class="container mx-auto px-4 py-12">
+    <div class="bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl p-8 text-center text-white">
+      <h3 class="text-2xl font-bold mb-2">Special Offer!</h3>
+      <p class="mb-4">Get 10% off on orders above ₹500</p>
+      <a href="order.html" class="inline-block bg-white text-orange-600 px-6 py-2 rounded-full font-semibold hover:bg-orange-100 transition">Order Now</a>
+    </div>
+  </div>
+
+  <footer class="bg-gray-900 text-white pt-12 pb-6 mt-12">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 Spice & Crust - Authentic Indian Bakery. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up text-white"></i>
+  </div>
+
+  <script src="js/menu.js"></script>
+  <script>
+    // Back to Top
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+      window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 300));
+      backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+  </script>
+</body>
+</html>

@@ -1,8 +1,8 @@
-# 🍞 Spice & Crust - Authentic Indian Bakery Shop
+# 🍽️ Restaurant_web - Authentic Indian Restaurant
 
-A complete full-stack bakery e-commerce website with responsive design, shopping cart, dummy payment system, order management, and beautiful UI animations.
+A complete full-stack restaurant website with responsive design, shopping cart, dummy payment system, order management, and beautiful UI animations.
 
-![Website Preview](https://via.placeholder.com/800x400?text=Spice+%26+Crust+Bakery)
+![Website Preview](https://via.placeholder.com/800x400?text=Restaurant_web)
 
 ---
 
@@ -10,8 +10,8 @@ A complete full-stack bakery e-commerce website with responsive design, shopping
 
 | Feature | Description |
 |---------|-------------|
-| 🏠 **Homepage** | Hero section with background, featured products, testimonials, stats counter |
-| 📋 **Menu Page** | 17+ Indian bakery items with category filters (Bread, Paratha, Snacks, Sweets, etc.) |
+| 🏠 **Homepage** | Hero section with background, featured dishes, testimonials, stats counter |
+| 📋 **Menu Page** | 17+ Indian food items with category filters |
 | 🛒 **Shopping Cart** | Add/remove items, update quantities, persisted in localStorage |
 | 💳 **Dummy Payment** | No validation - any card details work for testing |
 | 📝 **Order Management** | Orders saved in localStorage (demo mode) |
@@ -20,7 +20,7 @@ A complete full-stack bakery e-commerce website with responsive design, shopping
 | 📱 **Responsive** | Works perfectly on mobile, tablet, and desktop |
 | ✨ **Animations** | Smooth transitions, hover effects, scroll reveals |
 | 🗺️ **Contact Page** | Business hours, location map, contact form |
-| 📖 **About Page** | Company story, mission, vision, stats |
+| 📖 **About Page** | Restaurant story, mission, vision, stats |
 
 ---
 
